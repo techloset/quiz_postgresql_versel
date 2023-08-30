@@ -78,7 +78,6 @@ export default function UserQuestions() {
                     </div>
                 ))
             ) : (
-                // <p className="text-center font-bold my-14">No questions available.</p>
 
                 <div className="text-center my-10">
                 <div

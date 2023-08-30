@@ -13,8 +13,7 @@ export async function POST(req){
 }
 
 export async function GET(){
-  // await connectMongodb();
-  const questions = await prisma.question.findMany()
+  const questions = await prisma.Question.findMany()
     return NextResponse.json(questions)
  }
 
