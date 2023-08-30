@@ -3,20 +3,17 @@
 
 export default function RemoveBtn({id}) {
   
-  
-
   const removeTopic = async () => {
+    // console.log(id);
     const confirmed = confirm("Are You Sure To Delete Topic?")
-     
-    if(confirmed){
+         if(confirmed){
       const res =  await fetch(`http://localhost:3000/api/ques?id=${id}`,{
         method: "DELETE",
       })
-
       if(res.ok){
         window.location.reload()
-
       }
+
     }
 
   }

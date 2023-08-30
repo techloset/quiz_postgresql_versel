@@ -68,17 +68,28 @@ export default function UserQuestions() {
                                 {/* // ))} */}
 
                                 <div className="text-end">
-                                    <Link href={`/editQuestion/${q._id}`} className="py-2 px-2 bg-blue-400 mx-2 text-white rounded-md">
+                                    <Link href={`/editQuestion/${q.id}`} className="py-2 px-2 bg-blue-400 mx-2 text-white rounded-md">
                                         Edit
                                     </Link>
-                                    <RemoveBtn id={q._id} />
+                                    <RemoveBtn id={q.id} />
                                 </div>
                             </div>
                         </div>
                     </div>
                 ))
             ) : (
-                <p className="text-center font-bold my-14">No questions available.</p>
+                // <p className="text-center font-bold my-14">No questions available.</p>
+
+                <div className="text-center my-10">
+                <div
+                    className="text-center inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"
+                    role="status">
+                    <span
+                        className="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]"
+                    >Loading...</span
+                    >
+                </div>
+                    </div>
             )}
         </>
 

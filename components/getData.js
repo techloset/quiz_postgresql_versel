@@ -46,23 +46,6 @@ export default function GetData() {
 
     }
     
-    //     if (questions.some(q => q._id === questionId && q.selectedOption === null)) {
-    //         const isCorrect = selectedOption === correctOption;
-    //         if (isCorrect) {
-    //             setScore(prevScore => prevScore + 1);
-    //         }
-
-    //         // Update the selected option for the question to prevent further changes
-    //         setQuestions(prevQuestions =>
-    //             prevQuestions.map(q =>
-    //                 q._id === questionId
-    //                     ? { ...q, selectedOption }
-    //                     : q
-    //             )
-    //         );
-    //     }
-    // };
-
     const calculateResult = (e) => {
         var totalScore = 0;
         e.preventDefault();
@@ -80,16 +63,16 @@ export default function GetData() {
             {questions.length > 0 ? (
                 <>
                     {questions.map((q) => (
-                        <div key={q._id} className="mt-16 w-11/12 mx-auto p-8">
+                        <div key={q.id} className="mt-16 w-11/12 mx-auto p-8">
                             <div className="bg-gray-100 p-11 rounded-lg shadow-xl">
                                 <h2 className="text-2xl font-semibold mb-2">Q: {q.question}</h2>
                                 <div className="space-y-2 text-lg">
                                     <label className="flex items-center">
                                         <input
                                             type="radio"
-                                            name={q._id}
+                                            name={q.id}
                                             value={q.option1}
-                                            onClick={() => { checkQuiz(q.option1, q.correctOption, q._id) }}
+                                            onClick={() => { checkQuiz(q.option1, q.correctOption, q.id) }}
                                             className="mr-2"
                                         />
                                         {q.option1}
@@ -97,9 +80,9 @@ export default function GetData() {
                                     <label className="flex items-center">
                                         <input
                                             type="radio"
-                                            name={q._id}
+                                            name={q.id}
                                             value={q.option2}
-                                            onClick={() => { checkQuiz(q.option2, q.correctOption, q._id) }}
+                                            onClick={() => { checkQuiz(q.option2, q.correctOption, q.id) }}
                                             className="mr-2"
                                         />
                                         {q.option2}
@@ -107,9 +90,9 @@ export default function GetData() {
                                     <label className="flex items-center">
                                         <input
                                             type="radio"
-                                            name={q._id}
+                                            name={q.id}
                                             value={q.option3}
-                                            onClick={() => { checkQuiz(q.option3, q.correctOption, q._id) }}
+                                            onClick={() => { checkQuiz(q.option3, q.correctOption, q.id) }}
                                             className="mr-2"
                                         />
                                         {q.option3}
@@ -123,7 +106,17 @@ export default function GetData() {
                     </div>
                 </>
             ) : (
-                <p>You have no questions Yet!.</p>
+                
+                <div className="text-center my-10">
+                <div
+                    className="text-center inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"
+                    role="status">
+                    <span
+                        className="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]"
+                    >Loading...</span
+                    >
+                </div>
+                    </div>
             )}
 
 
