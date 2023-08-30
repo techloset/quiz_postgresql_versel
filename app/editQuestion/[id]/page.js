@@ -3,17 +3,7 @@ import EditQuestionForm from "@/components/EditQuestionForm";
 
 const getQuestionById = async (id) =>{
 
-    // try {
-    //     const res = await fetch(`api/ques/${id}`, {cache:"no-store"})
-    //     console.log("res",res)
-    //     if(!res.ok){
-    //         throw new Error("Failed To Fetch")
-    //     }
-    //     const data = await res.json()
-    //    return data
-    // } catch (error) {
-    //     console.log(error);
-    // }
+    
     try {
         const url = new URL(`/api/ques/${id}`, 'https://quiz-postgresql-versel-thfl.vercel.app');
         

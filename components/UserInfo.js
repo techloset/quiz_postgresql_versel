@@ -5,7 +5,6 @@ import { useSession } from 'next-auth/react'
 import Quiz from "@/app/quiz/page";
 
 import SignIn from '@/app/signIn/page';
-import Image from 'next/image';
 
 export default function UserInfo() {
     const {status, data:session} = useSession()
