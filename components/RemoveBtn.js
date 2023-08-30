@@ -12,7 +12,6 @@ export default function RemoveBtn({id}) {
       if(res.ok){
         window.location.reload()
       }
-
     }
   }
   return (

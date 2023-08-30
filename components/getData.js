@@ -1,14 +1,16 @@
 "use client"
 
 import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 
 
 export default function GetData() {
 
 
 
+    const router = useRouter()
     const [questions, setQuestions] = useState([]);
-   
+      
 
     useEffect(() => {
         const getQuestions = async () => {
@@ -45,17 +47,20 @@ export default function GetData() {
         }
 
     }
-    
     const calculateResult = (e) => {
         var totalScore = 0;
         e.preventDefault();
         answers.forEach(answer => {
             if (answer[0] == answer[1]) {
                 totalScore += 1;
+
             }
         });
-         alert(`You Correct answer is  ${totalScore} Out of  ${questions.length} `)
-         window.location.reload()
+        const question = questions.length
+       
+        localStorage.setItem('totalScore', totalScore);
+        localStorage.setItem('question', question);   
+        router.push(`/result`);
     };
 
     return (
@@ -63,7 +68,7 @@ export default function GetData() {
             {questions.length > 0 ? (
                 <>
                     {questions.map((q) => (
-                        <div key={q.id} className="mt-16 w-11/12 mx-auto p-8">
+                        <div key={q.id} className=" w-11/12 mx-auto p-8">
                             <div className="bg-gray-100 p-11 rounded-lg shadow-xl">
                                 <h2 className="text-2xl font-semibold mb-2">Q: {q.question}</h2>
                                 <div className="space-y-2 text-lg">
@@ -102,7 +107,7 @@ export default function GetData() {
                         </div>
                     ))}
                     <div className="text-center">
-                        <button type="button" className="my-10 bg-blue-500 py-2 px-3 shadow rounded-md text-white" onClick={calculateResult}>Submit</button>
+                        <button onClick={calculateResult} type="button" className="my-10 bg-blue-500 py-2 px-3 shadow rounded-md text-white" >Submit</button>
                     </div>
                 </>
             ) : (

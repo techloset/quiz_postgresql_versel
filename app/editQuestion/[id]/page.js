@@ -23,10 +23,8 @@ const getQuestionById = async (id) =>{
 }
 
 export default async function EditQuestion({params}) {
-  console.log("fjasdfajsdl",params)
     const {id} = params
     const {questions} = await getQuestionById(id)
-    console.log("first",questions)
     const {question, option1,option2,option3,correctOption} = questions 
 
   return (

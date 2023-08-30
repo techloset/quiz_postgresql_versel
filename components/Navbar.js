@@ -13,7 +13,7 @@ export default function Navbar() {
     }
 
   return (
-    <div className="p-4 flex justify-between items-center shadow-md my-3 ">
+    <div className="p-4 flex justify-between items-center shadow-md mb-20 mt-2 ">
         <Link href={'/'} className="font-bold text-lg text-blue-500">👨‍🎓 Quiz APP</Link>
         {status === "authenticated" ? (
             <>
