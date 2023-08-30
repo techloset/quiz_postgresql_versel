@@ -5,9 +5,6 @@ import { useState } from "react";
 
 export default function EditQuestionForm({id, question, option1, option2, option3, correctOption}) {
 
-
-    
-     console.log(question,option1)
     const router = useRouter()
     const [newQuestion, setNewQuestion] = useState(question)
     const [newOption1, setNewOption1] = useState(option1)
@@ -19,7 +16,7 @@ export default function EditQuestionForm({id, question, option1, option2, option
     const handleSubmit = async (e) =>{
         e.preventDefault()
         try {
-             const res = await fetch(`http://localhost:3000/api/ques/${id}`, {
+             const res = await fetch(`/api/ques/${id}`, {
                 method:"PUT",
                 headers:{
                     "Content-type":"application/json"

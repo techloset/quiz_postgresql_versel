@@ -3,16 +3,14 @@
 import { useEffect, useState } from "react";
 import RemoveBtn from "./RemoveBtn";
 import Link from "next/link";
-import { useSession } from 'next-auth/react'
 
 export default function UserQuestions() {
     const [state, setState] = useState([])
-    const { status, data: session } = useSession()
 
     useEffect(() => {
         const getQuestions = async () => {
             try {
-                const res = await fetch('http://localhost:3000/api/ques', { cache: "no-store" });
+                const res = await fetch('/api/ques', { cache: "no-store" });
                 if (!res.ok) {
                     throw new Error('Failed to Fetch Question');
                 }
@@ -65,8 +63,6 @@ export default function UserQuestions() {
                                     />
                                     {q.option3}
                                 </label>
-                                {/* // ))} */}
-
                                 <div className="text-end">
                                     <Link href={`/editQuestion/${q.id}`} className="py-2 px-2 bg-blue-400 mx-2 text-white rounded-md">
                                         Edit

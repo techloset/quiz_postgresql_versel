@@ -1,5 +1,4 @@
 
-
 import prisma from "@/lib/prisma";
 import { NextResponse } from "next/server";
 
@@ -8,7 +7,6 @@ export async function POST(req){
    let res =  await prisma.question.create({data: {
       question, option1, option2, option3, correctOption
     }})
-    console.log(res);
     return NextResponse.json({message:"Question Added"})
 }
 
@@ -20,7 +18,6 @@ export async function GET(){
 
  export async function DELETE(req){
   const id = req.nextUrl.searchParams.get('id')
-  // await connectMongodb()
   await  prisma.question.delete(
     {
       where:{

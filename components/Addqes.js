@@ -29,7 +29,7 @@ export default function Addqes() {
     let email = session?.user?.email
     const { question, option1, option2, option3, correctOption, } = state
     try {
-      const res = await fetch('http://localhost:3000/api/ques', {
+      const res = await fetch('/api/ques', {
         method: 'POST',
         headers: {
           "Content-Type": "application/json"
@@ -48,7 +48,6 @@ export default function Addqes() {
     } catch (error) {
       console.log(error)
     }
-    console.log(state);
 
 
   }
