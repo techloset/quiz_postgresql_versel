@@ -5,7 +5,7 @@ const getQuestionById = async (id) =>{
 
     
     try {
-        const url = new URL(`/api/ques/${id}`, 'https://quiz-postgresql-versel-thfl.vercel.app');
+        const url = new URL(`/api/ques/${id}`, "http://localhost:3000", 'https://quiz-postgresql-versel-thfl.vercel.app',);
         
         const res = await fetch(url, { cache: "no-store" });
         
