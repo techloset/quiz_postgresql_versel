@@ -13,7 +13,7 @@ export async function POST(req){
 }
 
 export async function GET(){
-  const questions = await prisma.Question.findMany()
+  const questions = await prisma.question.findMany()
     return NextResponse.json(questions)
  }
 
