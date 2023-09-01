@@ -31,7 +31,7 @@ export default function UserQuestions() {
             <h1 className="text-center font-bold text-3xl mt-10">Your Questions</h1>
             {state.length > 0 ? (
                 state.map((q, i) => (
-                    <div key={i} className="mt-16 w-11/12 mx-auto">
+                    <div key={i} className="w-[100vh] mt-16  mx-auto">
                         <div className="bg-gray-100 p-11 rounded-lg shadow-xl">
                             <div className="m-3 font-bold text-xl"></div>
                             <h2 className="text-2xl font-semibold mb-2">Q {i + 1}: {q.question}</h2>
@@ -75,7 +75,7 @@ export default function UserQuestions() {
                 ))
             ) : (
 
-                <div className="text-center my-10">
+                <div className="text-center my-10 ">
                 <div
                     className="text-center inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"
                     role="status">

@@ -27,6 +27,7 @@ export default function EditQuestionForm({id, question, option1, option2, option
              if(!res.ok){
                 throw new Error('Failed To update')
             }
+            window.notify('Question has been Updated')
             router.push('/addquestion')
         } catch (error) {
         console.log(error)

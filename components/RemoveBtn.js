@@ -10,6 +10,7 @@ export default function RemoveBtn({id}) {
         method: "DELETE",
       })
       if(res.ok){
+        window.notify('Question has been deleted!', 'success')
         window.location.reload()
       }
     }

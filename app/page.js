@@ -1,9 +1,10 @@
-import Quiz from './quiz/page'
+import LoginForm from '@/components/LoginForm'
+import 'react-toastify/dist/ReactToastify.css';
 export default function Home() {
   return (
-    <div className='grid place-items-center h-screen -m-24'>
-    <Quiz/>
-    </div>
+    <>
+    <LoginForm/>
+    </>
     
   )
 }

@@ -1,29 +1,23 @@
-'use client'
 
 import Link from "next/link";
-import { signIn, signOut, useSession } from "next-auth/react";
-import { useRouter } from "next/navigation";
+import SignOutbtn from "./SignOutbtn";
+import UserName from "./UserName";
 export default function Navbar() {
-
-    const router = useRouter()
-    const {status}= useSession() 
-    const handleLogout = () =>{
-        signOut()
-        router.push("/quiz")
-    }
-
   return (
-    <div className="p-4 flex justify-between items-center shadow-md mb-20 mt-2 ">
-        <Link href={'/'} className="font-bold text-lg text-blue-500">👨‍🎓 Quiz APP</Link>
-        {status === "authenticated" ? (
-            <>
-            <button onClick={handleLogout} className="bg-red-500 py-2 text-white font-bold px-3 rounded-md ">Sign Out</button>
-            <Link href={'/addquestion'}  className="bg-blue-500 py-2 text-white font-bold px-3 rounded-md  ">Add Question</Link>
-            </>
-        ):(
-            <button onClick={()=>signIn("google")} className="bg-blue-500 py-2 text-white font-bold px-3 rounded-md ">Sign In</button>
-            
-        )}
-    </div>
+    <header className="text-white body-font bg-black">
+  <div className="container mx-auto flex flex-wrap py-3 px-3 flex-col md:flex-row items-center">
+    {/* <a className="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0"> */}
+          
+      <Link href={'/quiz'} className="ml-3 text-white text-xl">👩‍🎓 QuizApp</Link>
+    {/* </a> */}
+    <nav className="md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center">
+      <a className="mr-5">Hi  <UserName/> 
+      👋</a>
+    </nav>
+   <SignOutbtn/>
+    <Link href={'/addquestion'} className="inline-flex mx-3 items-center bg-green-500 border-0 py-1 px-3 focus:outline-none hover:bg-green-700 rounded text-base mt-4 md:mt-0">Add Question
+    </Link>
+  </div>
+</header>
   )
 }

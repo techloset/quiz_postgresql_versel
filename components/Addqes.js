@@ -3,6 +3,7 @@
 
 import { useSession } from "next-auth/react";
 import { useState } from "react";
+import Navbar from "./Navbar";
 
 const initialstate = {
   question: "",
@@ -38,11 +39,11 @@ export default function Addqes() {
       })
 
       if (res.ok) {
-        alert("Your Question has been Added")
         window.location.reload()
+        window.notify('Your Question has been added','success')
         return
       } else {
-        alert('Question Not added')
+        window.notify('Question Not added', 'error')
       }
 
     } catch (error) {
@@ -53,10 +54,13 @@ export default function Addqes() {
   }
 
   return (
+    <>
+    <Navbar/>
     <div className="container mx-auto p-8">
       <h1 className="text-3xl font-bold mb-4 text-center">Add Quiz Question</h1>
 
-      <div className="bg-gray-100  p-10 rounded-lg shadow-xl">
+       <div className="flex justify-center ">
+      <div className="bg-gray-100 w-[110vh]  p-10 rounded-lg shadow-xl">
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
             <label htmlFor="question" className="block text-lg font-semibold mb-2">Question:</label>
@@ -88,6 +92,8 @@ export default function Addqes() {
         </form>
       </div>
 
+       </div>
     </div>
+    </>
   )
 }
