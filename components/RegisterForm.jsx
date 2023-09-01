@@ -53,7 +53,7 @@ export default function RegisterForm() {
         const form = e.target;
         form.reset();
         window.notify('Registration successful','success')
-        router.push("/welcome");
+        router.push("/quiz");
       } else {
         window.notify("User registration failed.",'error');
       }
@@ -88,7 +88,7 @@ export default function RegisterForm() {
               Register
             </button>
 
-            <Link className="text-sm mt-3 text-right" href={"/"}>
+            <Link className="text-sm mt-3 text-right" href={"/login"}>
               Already have an account? <span className="underline">Login</span>
             </Link>
           </form> 

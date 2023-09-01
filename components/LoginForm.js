@@ -25,7 +25,7 @@ export default function LoginForm() {
         return window.notify('Invalid Credentials', 'error')
         
       }
-      router.push("/welcome");
+      router.push("/quiz");
     } catch (error) {
       console.log(error);
     }
