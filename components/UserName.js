@@ -5,7 +5,6 @@ export default function UserName() {
     
   return (
     <>{session?.user?.name} </>
-    <>{session?.user?.name} </>
-    <>{session?.user?.name} </>
+
   )
 }
