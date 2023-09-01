@@ -28,7 +28,7 @@ export default function UserQuestions() {
 
     return (
         <>
-            <h1 className="text-center font-bold text-3xl mt-10">Your Questions</h1>
+            <h1 className="text-center font-bold text-xl mt-10"> Questions You can Edit or Delete</h1>
             {state.length > 0 ? (
                 state.map((q, i) => (
                     <div key={i} className="w-[100vh] mt-16  mx-auto">

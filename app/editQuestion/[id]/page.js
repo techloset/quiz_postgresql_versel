@@ -19,7 +19,6 @@ const getQuestionById = async (id) =>{
         console.log(error);
     }
     
-    
 }
 
 export default async function EditQuestion({params}) {

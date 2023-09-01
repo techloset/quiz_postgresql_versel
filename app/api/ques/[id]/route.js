@@ -7,7 +7,7 @@ export async function PUT(req, {params}){
     const {newQuestion:question, newOption1: option1, newOption2: option2, newOption3:option3, newCorrectOption: correctOption } = await req.json()
     await  prisma.question.update({
       where: {
-         id: parseInt(id), // Replace with the actual question ID you want to update
+         id: parseInt(id), 
        },
        data: {
          question,

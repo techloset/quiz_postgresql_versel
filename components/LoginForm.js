@@ -13,10 +13,6 @@ export default function LoginForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    // console.log(email, password);
-    // window.notify('User Login', 'success')
-    // router.push('/welcome')
     try {
       const res = await signIn("credentials", {
         email,
