@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 
 export default function RegisterForm() {
   const [name, setName] = useState("");
@@ -93,7 +94,7 @@ export default function RegisterForm() {
           </form> 
         </div>
         <div className="hidden md:block ml-10 mt-14">
-          <img src="/welcome Quiz.jpg" alt="Welcome" className="" />
+          <Image height={600} width={300} src="/welcome Quiz.jpg" alt="Welcome" className="" />
         </div>
       </div>
     </div>
