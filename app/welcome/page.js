@@ -1,11 +1,16 @@
-
+'use client'
+import { useSession } from 'next-auth/react'
+import { redirect } from 'next/navigation'
 import Image from 'next/image'
 import Link from 'next/link'
 
 export default function Welcome() {
+  const {status} = useSession()
+  if(status == "authenticated"){
+     redirect("/quiz")
+  }
   return (
     <div>
-          {/* <Navbar/> */}
           <div className='flex my-10  justify-center '>
           <Image src='/welcome Quiz.jpg' alt='welcome' height={600} width={300}/>
           </div>

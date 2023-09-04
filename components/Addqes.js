@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Navbar from "./Navbar";
 import { useRouter } from "next/navigation";
+import { toast } from "react-toastify";
 
 const initialstate = {
   question: "",
@@ -39,11 +40,11 @@ export default function Addqes() {
       });
 
       if (res.ok) {
-        alert("Your Question has been added", "success");
+        toast.success("Your Question has been added");
         router.push('/quiz')
         return;
       } else {
-        alert("Question Not added", "error");
+        toast.error("Question Not added");
       }
     } catch (error) {
       console.log(error);

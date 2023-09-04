@@ -5,6 +5,7 @@ import { useState } from "react";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
+import { toast } from "react-toastify";
 
 export default function LoginForm() {
   const [email, setEmail] = useState("");
@@ -26,10 +27,10 @@ export default function LoginForm() {
 
       if (res.error) {
         setisLoading(false)
-        return alert('Invalid Credentials')
-        
-      }
+        return toast.error('Invalid Credentials')
+        }
       router.push("/quiz");
+      window.location.reload()
       setisLoading(false)
     } catch (error) {
       console.log(error);

@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
+import { toast } from "react-toastify";
 
 export default function RegisterForm() {
   const [name, setName] = useState("");
@@ -17,11 +18,11 @@ export default function RegisterForm() {
     e.preventDefault();
 
     if (!name || !email || !password) {
-       alert("All Fields are Requried ❗");
+       toast.error("All Fields are Requried ❗");
        return
     }
     else if(password.length<6){
-        alert('Password Should at least 6 characters')
+        toast.error('Password Should at least 6 characters')
         return
     } 
     
@@ -41,7 +42,7 @@ export default function RegisterForm() {
 
       if (user) {
         setisLoading(false)
-        return alert("User already exists.");
+        return toast.error("User already exists.");
         
       }
 
@@ -60,11 +61,11 @@ export default function RegisterForm() {
       if (res.ok) {
         const form = e.target;
         form.reset();
-        alert('Registration successful','success')
+        toast.success('Registration successful','success')
         router.push("/quiz");
         setisLoading(false)
       } else {
-        alert("User registration failed.",'error');
+        toast.error("User registration failed.",'error');
       }
     } catch (error) {
       console.log("Error during registration: ", error);

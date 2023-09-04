@@ -2,6 +2,7 @@
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import Navbar from "./Navbar";
+import { toast } from "react-toastify";
 
 export default function EditQuestionForm({
   id,
@@ -38,7 +39,7 @@ export default function EditQuestionForm({
       if (!res.ok) {
         throw new Error("Failed To update");
       }
-      alert("Question has been Updated");
+      toast.success("Question has been Updated");
       router.push("/quiz");
     } catch (error) {
       console.log(error);

@@ -1,5 +1,7 @@
 "use client"
 
+import { toast } from "react-toastify"
+
 
 export default function RemoveBtn({id}) {
   
@@ -10,7 +12,7 @@ export default function RemoveBtn({id}) {
         method: "DELETE",
       })
       if(res.ok){
-        window.notify('Question has been deleted!', 'success')
+        toast.success('Question has been deleted!')
         window.location.reload()
       }
     }

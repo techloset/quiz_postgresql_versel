@@ -1,6 +1,5 @@
 'use-client';
 
-
 import { useRouter } from "next/navigation";
 import { signOut } from "next-auth/react";
 
@@ -9,8 +8,8 @@ export default function SignOutbtn() {
 
   const handleLogout = async () => {
     await signOut({ redirect: false });
-
-    router.push("/login");
+     router.push("/register");
+     window.location.reload()
   };
   return (
     <button
