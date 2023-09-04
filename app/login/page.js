@@ -1,14 +1,17 @@
 'use client'
 import LoginForm from "@/components/LoginForm";
 import { useSession } from "next-auth/react";
-import { redirect } from "next/navigation";
+import { redirect, useRouter } from "next/navigation";
+import { useEffect } from "react";
 
 export default  function Login() {
+    const router = useRouter()
   const {status} = useSession()
-   if(status == "authenticated"){
-      redirect("/quiz")
-   }
-
+  useEffect(() => {
+    if (status === "authenticated") {
+      router.push("/quiz");
+    }
+  }, [status, router]);
   return (
     <>
      <LoginForm/>

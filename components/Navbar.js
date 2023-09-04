@@ -2,7 +2,9 @@
 import Link from "next/link";
 import SignOutbtn from "./SignOutbtn";
 import UserName from "./UserName";
+import { useSession } from "next-auth/react";
 export default function Navbar() {
+  const {status} = useSession()
   return (
     <header className="text-white body-font bg-black">
       <div className="w-full justify-center   container mx-auto flex flex-wrap py-3 lg:px-4 md:px-2 sm:flex-col md:flex-row items-center">
@@ -11,7 +13,7 @@ export default function Navbar() {
         </Link>
         <nav className=" md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center">
           <a className="mx-5 lg:mt-1 md:mt-0 sm:my-2 ml-10 mt-[10px]  ">
-            Hi <UserName /> 👋
+            {status && <> Hi <UserName /> 👋</> }
           </a>
         </nav>
         <SignOutbtn  className='-mt-2'/>

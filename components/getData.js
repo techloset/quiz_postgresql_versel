@@ -56,7 +56,7 @@ export default function GetData() {
     if (questions.length === answers.length) {
       localStorage.setItem("totalScore", totalScore);
       localStorage.setItem("question", question);
-      toast.success('Questions has been Submitted !')
+      toast.success('Questions has been Submitted')
       router.push(`/result`);
     } else {
       toast.error("Please answer all questions");

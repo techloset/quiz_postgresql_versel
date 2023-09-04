@@ -64,6 +64,7 @@ export default function EditQuestionForm({
                 Question:
               </label>
               <textarea
+                style={{resize:'none'}}
                 value={newQuestion}
                 onChange={(e) => setNewQuestion(e.target.value)}
                 id="question"

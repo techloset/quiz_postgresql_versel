@@ -69,12 +69,13 @@ export default function Addqes() {
                   Question:
                 </label>
                 <textarea
+                style={{resize:"none"}}
                   required
                   onChange={handleChange}
                   id="question"
                   name="question"
-                  rows="3"
-                  className="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500"
+                  rows='3'
+                  className="focus:outline-none w-full px-3 py-2 border rounded-md "
                 ></textarea>
               </div>
 
@@ -88,7 +89,7 @@ export default function Addqes() {
                   type="text"
                   id="option1"
                   name="option1"
-                  className="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500"
+                  className="w-full px-3 py-2 border rounded-md focus:outline-none"
                 />
               </div>
 
@@ -102,7 +103,7 @@ export default function Addqes() {
                   type="text"
                   id="option2"
                   name="option2"
-                  className="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500"
+                  className="w-full px-3 py-2 border rounded-md focus:outline-none"
                 />
               </div>
 
@@ -116,7 +117,7 @@ export default function Addqes() {
                   type="text"
                   id="option3"
                   name="option3"
-                  className="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500"
+                  className="w-full px-3 py-2 border rounded-md focus:outline-none"
                 />
               </div>
 
@@ -133,7 +134,7 @@ export default function Addqes() {
                   onChange={handleChange}
                   id="correctOption"
                   name="correctOption"
-                  className="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500"
+                  className="w-full px-3 py-2 border rounded-md focus:outline-none"
                 />
               </div>
 

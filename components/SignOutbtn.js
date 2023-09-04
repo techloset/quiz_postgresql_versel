@@ -7,9 +7,12 @@ export default function SignOutbtn() {
   const router = useRouter();
 
   const handleLogout = async () => {
-    await signOut({ redirect: false });
-     router.push("/register");
-     window.location.reload()
+    try {
+      await signOut({ redirect: true });
+      router.push("/login");
+    } catch (error) {
+      console.error("Error during logout:", error);
+    }
   };
   return (
     <button
