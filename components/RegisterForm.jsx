@@ -9,6 +9,7 @@ export default function RegisterForm() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [isLoading, setisLoading] = useState(false)
 
   const router = useRouter();
 
@@ -16,13 +17,18 @@ export default function RegisterForm() {
     e.preventDefault();
 
     if (!name || !email || !password) {
-      return window.notify("All Fields are Requried ❗", "error");
+       alert("All Fields are Requried ❗");
+       return
     }
-    // console.log(name, email, password)
-    // window.notify('User Register ', 'success')
-    //  router.push('/welcome')
+    else if(password.length<6){
+        alert('Password Should at least 6 characters')
+        return
+    } 
+    
+    
 
     try {
+      setisLoading(true)
       const resUserExists = await fetch("api/userExists", {
         method: "POST",
         headers: {
@@ -34,7 +40,9 @@ export default function RegisterForm() {
       const { user } = await resUserExists.json();
 
       if (user) {
-        return window.notify("User already exists.", "error");
+        setisLoading(false)
+        return alert("User already exists.");
+        
       }
 
       const res = await fetch("api/register", {
@@ -52,13 +60,15 @@ export default function RegisterForm() {
       if (res.ok) {
         const form = e.target;
         form.reset();
-        window.notify('Registration successful','success')
+        alert('Registration successful','success')
         router.push("/quiz");
+        setisLoading(false)
       } else {
-        window.notify("User registration failed.",'error');
+        alert("User registration failed.",'error');
       }
     } catch (error) {
       console.log("Error during registration: ", error);
+      setisLoading(false)
     }
   };
 
@@ -69,23 +79,24 @@ export default function RegisterForm() {
           <h1 className="text-xl font-bold my-4">Register To Start Quiz</h1>
 
           <form onSubmit={handleSubmit} className="flex flex-col gap-3">
-            <input required className='py-1 px-3 rounded-sm border border-gray-500'
+            <input  className='focus:outline-none py-1 px-3 rounded-md border border-gray-500'
               onChange={(e) => setName(e.target.value)}
               type="text"
               placeholder="Full Name"
             />
-            <input required className='py-1 px-3 rounded-sm border border-gray-500'
+            <input  className='focus:outline-none py-1 px-3 rounded-md border border-gray-500'
               onChange={(e) => setEmail(e.target.value)}
               type="email"
               placeholder="Email"
             />
-            <input required className='py-1 px-3 rounded-sm border border-gray-500'
+            <input   className='focus:outline-none  py-1 px-3 rounded-md border border-gray-500'
               onChange={(e) => setPassword(e.target.value)}
               type="password"
-              placeholder="Password"
+              placeholder="Password at least 6 characters"
             />
             <button className="bg-green-600 text-white font-bold cursor-pointer px-6 py-2">
-              Register
+              {isLoading ? "Register..." : 'Register'}
+              
             </button>
 
             <Link className="text-sm mt-3 text-right" href={"/login"}>

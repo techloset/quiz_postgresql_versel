@@ -38,8 +38,8 @@ export default function EditQuestionForm({
       if (!res.ok) {
         throw new Error("Failed To update");
       }
-      window.notify("Question has been Updated");
-      router.push("/addquestion");
+      alert("Question has been Updated");
+      router.push("/quiz");
     } catch (error) {
       console.log(error);
     }

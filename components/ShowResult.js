@@ -12,7 +12,6 @@ export default function ShowResult() {
     setQuestion(localStorage.getItem("question"))
   }, []);
 
-  // const { totalScore, question } = router.query;
   return (
     <>
     <Navbar/>
@@ -24,7 +23,7 @@ export default function ShowResult() {
 
       <div className="flex justify-center">
       <div className="flex justify-center w-[100vh]">
-        <div className="shadow w-[90vh] h-[50vh] bg-slate-300 py-3 px-2">
+        <div className="p-5 shadow lg:w-[90vh] lg:h-[50vh] md:h-[50vh] md:w-[70vh] sm:h-[50vh] bg-slate-300 lg:py-3 :lg:px-2 md:px-5 md:py-4 sm:py-3">
           <h1 className="text-xl my-4">
             Total Question = <span className="font-bold">{question}</span>
           </h1>

@@ -55,10 +55,9 @@ export default function GetData() {
     if (questions.length === answers.length) {
       localStorage.setItem("totalScore", totalScore);
       localStorage.setItem("question", question);
-
       router.push(`/result`);
     } else {
-      alert("Please answer all questions", "error");
+      window.notify("Please answer all questions", "error");
     }
   };
 

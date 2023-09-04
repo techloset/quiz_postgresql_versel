@@ -9,12 +9,15 @@ import Image from "next/image";
 export default function LoginForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [isLoading, setisLoading] = useState(false)
+
 
   const router = useRouter();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
+      setisLoading(true)
       const res = await signIn("credentials", {
         email,
         password,
@@ -22,12 +25,15 @@ export default function LoginForm() {
       });
 
       if (res.error) {
-        return window.notify('Invalid Credentials', 'error')
+        setisLoading(false)
+        return alert('Invalid Credentials')
         
       }
       router.push("/quiz");
+      setisLoading(false)
     } catch (error) {
       console.log(error);
+      setisLoading(false)
     }
   };
 
@@ -41,18 +47,18 @@ export default function LoginForm() {
             <h1 className="text-xl font-bold my-4">Login</h1>
 
             <form onSubmit={handleSubmit} className="flex flex-col gap-3">
-                <input required className='py-1 px-3 rounded-sm border border-gray-500'
+                <input required className='focus:outline-none py-1 px-3 rounded-md border border-gray-500'
                     onChange={(e) => setEmail(e.target.value)}
                     type="text"
                     placeholder="Email"
                 />
-                <input required className='py-1 px-3 rounded-sm border border-gray-500'
+                <input required className='focus:outline-none py-1 px-3 rounded-md border border-gray-500'
                     onChange={(e) => setPassword(e.target.value)}
                     type="password"
                     placeholder="Password"
                 />
-                <button className="bg-green-600 text-white font-bold cursor-pointer px-6 py-2">
-                    Login
+                <button className= " bg-green-600 text-white font-bold cursor-pointer px-6 py-2">
+                    {isLoading? 'Login...':'Login'}
                 </button>
                      <Link className="text-sm mt-3 text-right" href={"/register"}>
                     Dont have an account? <span className="underline">Register</span>

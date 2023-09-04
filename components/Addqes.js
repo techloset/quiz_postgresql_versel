@@ -1,8 +1,8 @@
 "use client";
 
-import { useSession } from "next-auth/react";
 import { useState } from "react";
 import Navbar from "./Navbar";
+import { useRouter } from "next/navigation";
 
 const initialstate = {
   question: "",
@@ -13,8 +13,8 @@ const initialstate = {
   email: "",
 };
 export default function Addqes() {
-  const { status, data: session } = useSession();
   const [state, setState] = useState(initialstate);
+  const router = useRouter()
 
   const handleChange = (e) => {
     setState((s) => ({ ...s, [e.target.name]: e.target.value }));
@@ -22,7 +22,6 @@ export default function Addqes() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    let email = session?.user?.email;
     const { question, option1, option2, option3, correctOption } = state;
     try {
       const res = await fetch("/api/ques", {
@@ -36,16 +35,15 @@ export default function Addqes() {
           option2,
           option3,
           correctOption,
-          email,
         }),
       });
 
       if (res.ok) {
-        window.location.reload();
-        window.notify("Your Question has been added", "success");
+        alert("Your Question has been added", "success");
+        router.push('/quiz')
         return;
       } else {
-        window.notify("Question Not added", "error");
+        alert("Question Not added", "error");
       }
     } catch (error) {
       console.log(error);
