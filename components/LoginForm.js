@@ -30,6 +30,7 @@ export default function LoginForm() {
         return toast.error('Invalid Credentials')
         }
       router.push("/quiz");
+      window.location.reload()
       setisLoading(false)
       
     } catch (error) {
