@@ -31,6 +31,8 @@ export default function LoginForm() {
         }
       router.push("/quiz");
       setisLoading(false)
+      window.location.reload()
+      
     } catch (error) {
       console.log(error);
       setisLoading(false)
