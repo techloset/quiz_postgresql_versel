@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import Navbar from "./Navbar";
 
 export default function ShowResult() {
+  
   const [totalScore, setTotalScore] = useState(null)
   const [question, setQuestion] = useState(null)
   useEffect(() => {
