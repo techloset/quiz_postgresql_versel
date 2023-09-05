@@ -7,11 +7,11 @@ import { useEffect } from "react";
 export default  function Login() {
     const router = useRouter()
   const {status} = useSession()
-  useEffect(() => {
+  // useEffect(() => {
     if (status === "authenticated") {
       router.push("/quiz");
     }
-  }, [status, router]);
+  // }, [status, router]);
   return (
     <>
      <LoginForm/>
