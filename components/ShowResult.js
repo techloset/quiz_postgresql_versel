@@ -29,7 +29,7 @@ export default function ShowResult() {
             Total Question = <span className="font-bold">{question}</span>
           </h1>
           <h1 className="text-xl my-4">
-            Correct Question = <span className="font-bold">{totalScore}</span>
+            Correct Answers = <span className="font-bold">{totalScore}</span>
           </h1>
           <h1 className="text-xl my-4">
             Your Score is <span className="font-bold">{totalScore}</span> out of <span className="font-bold">{question}</span>

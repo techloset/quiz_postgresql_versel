@@ -91,7 +91,7 @@ export default function GetData() {
                 <div key={i} className="w-11/12 sm:w-11/12 mx-auto p-8">
                   <div className="bg-gray-100 p-8 sm:p-11 rounded-lg shadow-xl">
                     <h2 className="text-xl sm:text-2xl font-semibold mb-2">
-                      Q: {q.question}
+                      Q{i + 1}: {q.question}
                     </h2>
                     <div className="space-y-2 text-base sm:text-lg">
                       <label className="flex items-center">
